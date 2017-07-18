@@ -16,8 +16,23 @@ namespace MyWebApi.DataAsistent
             List<string> vals = new List<string>();
             if(!string.IsNullOrEmpty(t.Name))
             {
-                cols.Add("'Name'");
+                cols.Add("Name");
                 vals.Add("'" + t.Name + "'");
+            }
+            if (t.Age>0)
+            {
+                cols.Add("Age");
+                vals.Add("'" + t.Age + "'");
+            }
+            if (!string.IsNullOrEmpty(t.Grade))
+            {
+                cols.Add("Grade");
+                vals.Add("'" + t.Grade + "'");
+            }
+            if (!string.IsNullOrEmpty(t.Sex))
+            {
+                cols.Add("Sex");
+                vals.Add("'" + t.Sex + "'");
             }
             string cmdStr = string.Format("insert into student ({0}) values ({1})", string.Join(",", cols), string.Join(",", vals));
             using (SqlConnection conn = new SqlConnection())
@@ -26,6 +41,7 @@ namespace MyWebApi.DataAsistent
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = cmdStr;
+                    conn.Open();
                     return cmd.ExecuteNonQuery();
                 }
             }
@@ -55,6 +71,7 @@ namespace MyWebApi.DataAsistent
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = cmdStr;
+                    conn.Open();
                     obj = cmd.ExecuteScalar();
                 }
             }
@@ -68,7 +85,17 @@ namespace MyWebApi.DataAsistent
 
         public int Update(StudentModel t)
         {
-            throw new NotImplementedException();
+            string cmdStr = "";
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = DataHelper.connStr;
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = cmdStr;
+                    conn.Open();
+                }
+            }
+            return 0;
         }
     }
 }
