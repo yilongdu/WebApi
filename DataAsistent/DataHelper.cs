@@ -8,6 +8,6 @@ namespace MyWebApi.DataAsistent
 {
     public class DataHelper
     {
-        public static string connStr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\Projects\\MyWebApi\\DataAsistent\\Data\\Database.mdf;Integrated Security=True";
+        public static string connStr = "Data Source=DESKTOP-7O08L2D;Initial Catalog=MyWebApi;Persist Security Info=True;User ID=sa;Password=spring";
     }
 }

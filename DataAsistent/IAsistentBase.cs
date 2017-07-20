@@ -18,6 +18,6 @@ namespace MyWebApi.DataAsistent
 
         List<T> GetList(T t);
 
-        int Update(T t);
+        int Update(int id, T t);
     }
 }

@@ -12,9 +12,10 @@ namespace MyWebApi.Controllers
     public class StudentController : ApiController
     {
         // GET: api/Student
-        public IEnumerable<StudentModel> Get()
+        public IEnumerable<StudentModel> Get([FromUri]StudentModel value)
         {
-            return new StudentModel[] { new StudentModel(), new StudentModel() };
+            StudentAsistent asist = new StudentAsistent();
+            return asist.GetList(value);
         }
 
         // GET: api/Student/5
@@ -33,13 +34,17 @@ namespace MyWebApi.Controllers
         }
 
         // PUT: api/Student/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody]StudentModel value)
         {
+            StudentAsistent asist = new StudentAsistent();
+            asist.Update(id,value);
         }
 
         // DELETE: api/Student/5
         public void Delete(int id)
         {
+            StudentAsistent asist = new StudentAsistent();
+            asist.Delete(id);
         }
     }
 }

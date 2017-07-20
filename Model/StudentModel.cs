@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace MyWebApi.Model
 {
-    [Serializable]
     public class StudentModel
     {
         public int ID { get; set; }
