@@ -46,5 +46,11 @@ namespace MyWebApi.Controllers
             StudentAsistent asist = new StudentAsistent();
             asist.Delete(id);
         }
+
+        [HttpPatch]
+        public void Patch()
+        {
+
+        }
     }
 }
