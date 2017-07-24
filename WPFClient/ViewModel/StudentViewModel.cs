@@ -5,6 +5,7 @@ using MyWebApi.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -53,7 +54,7 @@ namespace WPFClient.ViewModel
 
         public void OnConfirmCommandExecute()
         {
-            
+            Fuctions.SendRequest<StudentModel>(Student, URL, HttpMethod.Get);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -9,11 +11,11 @@ namespace MyWebApi.Common
 {
     public class Fuctions
     {
-        public static string SendRequest<T>(string json,string url,HttpMethod method) where T: ViewModelBase
+        public static string SendRequest<T>(T model,string url,HttpMethod method) where T: class
         {
             if(method.Equals(HttpMethod.Get))
             {
-
+                string json = JsonConvert.SerializeObject(model);
             }
             if (method.Equals(HttpMethod.Delete))
             {
