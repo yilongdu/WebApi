@@ -34,9 +34,7 @@ namespace MyWebApi
             public override Task WriteToStreamAsync(Type type, object value, Stream stream, HttpContent content, TransportContext transportContext)
             {
                 string callback;
-
-
-
+                
                 if (IsJsonpRequest(out callback))
                 {
                     return Task.Factory.StartNew(() => {
