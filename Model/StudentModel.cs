@@ -1,5 +1,4 @@
-﻿using GalaSoft.MvvmLight;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyWebApi.Model
 {
-    public class StudentModel:ViewModelBase
+    public class StudentModel
     {
         private int _ID = 0;
         public int ID
@@ -16,7 +15,7 @@ namespace MyWebApi.Model
             { return _ID; }
             set
             {
-                RaisePropertyChanged(() => ID); _ID = value;
+                _ID = value;
             }
         }
 
@@ -28,7 +27,6 @@ namespace MyWebApi.Model
             set
             {
                 _Name = value;
-                RaisePropertyChanged(() => Name);
             }
         }
         private string _Sex = "";
@@ -39,7 +37,6 @@ namespace MyWebApi.Model
             set
             {
                 _Sex = value;
-                RaisePropertyChanged(() => Sex);
             }
         }
 
@@ -50,7 +47,6 @@ namespace MyWebApi.Model
             set
             {
                 _Age = value;
-                RaisePropertyChanged(() => Age);
             }
         }
 
@@ -58,7 +54,7 @@ namespace MyWebApi.Model
         public string Grade
         {
             get { return _Grade; }
-            set { _Grade = value; RaisePropertyChanged(() => Grade); }
+            set { _Grade = value; }
         }
 
         private int _IsDelete = 0;
@@ -68,7 +64,6 @@ namespace MyWebApi.Model
             set
             {
                 _IsDelete = value;
-                RaisePropertyChanged(() => IsDelete);
             }
         }
     }
