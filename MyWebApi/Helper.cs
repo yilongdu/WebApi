@@ -35,6 +35,8 @@ namespace MyWebApi
             {
                 string callback;
 
+
+
                 if (IsJsonpRequest(out callback))
                 {
                     return Task.Factory.StartNew(() => {
